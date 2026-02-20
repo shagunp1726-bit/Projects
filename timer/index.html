@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Timer Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div>
+                <h1>Smart Timer Dashboard</h1>
+                <p class="subtitle">Productivity & Grooming Manager</p>
+            </div>
+            <button id="theme-toggle" class="icon-button" aria-label="Toggle dark mode">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round" class="moon-icon">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round" class="sun-icon" style="display: none;">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+        </header>
+
+        <main>
+            <!-- Timer Section -->
+            <section class="card timer-card">
+                <div class="timer-header">
+                    <h2 id="mode-indicator" class="mode-work">Work Mode</h2>
+                    <div class="session-counter">Sessions: <span id="session-count">0</span></div>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+
+                <div class="timer-display-wrapper">
+                    <div class="timer-display" id="timer-display">00:25:00</div>
+                </div>
+
+                <div class="preset-buttons">
+                    <button class="preset-btn" data-time="10">10m</button>
+                    <button class="preset-btn" data-time="30">30m</button>
+                    <button class="preset-btn" data-time="60">60m</button>
+                </div>
+
+                <div class="timer-inputs">
+                    <div class="input-group">
+                        <label for="work-time">Work (min)</label>
+                        <input type="number" id="work-time" value="25" min="1">
+                    </div>
+                    <div class="input-group">
+                        <label for="break-time">Break (min)</label>
+                        <input type="number" id="break-time" value="5" min="1">
+                    </div>
+                </div>
+
+                <div class="timer-controls">
+                    <button id="start-btn" class="control-btn btn-primary">Start</button>
+                    <button id="pause-btn" class="control-btn btn-warning">Pause</button>
+                    <button id="reset-btn" class="control-btn btn-danger">Reset</button>
+                </div>
+                <!-- Checkbox for auto-repeat -->
+                <div class="auto-repeat-wrapper">
+                    <input type="checkbox" id="auto-repeat">
+                    <label for="auto-repeat">Auto-repeat Break to Work</label>
+                </div>
+            </section>
+
+            <!-- To-Do List Section -->
+            <section class="card todo-card">
+                <h2>Task List</h2>
+                <div class="todo-input-group">
+                    <input type="text" id="task-input" placeholder="What needs to be done?">
+                    <button id="add-task-btn" class="btn-primary">Add Task</button>
+                </div>
+
+                <div class="task-stats">
+                    <span id="tasks-remaining">0 tasks remaining</span>
+                </div>
+
+                <ul class="task-list" id="task-list">
+                    <!-- Tasks injected by JS -->
+                </ul>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
