@@ -50,10 +50,22 @@ body {
 
 .dashboard-container {
     width: 100%;
-    max-width: 550px;
+    max-width: 1200px;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 30px;
+}
+
+main {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.timer-card,
+.todo-card {
+    flex: 1;
+    min-width: 0;
 }
 
 .dashboard-header {
@@ -405,6 +417,12 @@ input[type="checkbox"] {
 }
 
 /* Responsive adjustments */
+@media (max-width: 900px) {
+    main {
+        flex-direction: column;
+    }
+}
+
 @media (max-width: 500px) {
     body {
         padding: 15px 10px;
